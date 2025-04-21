@@ -1,0 +1,202 @@
+Sub Macro1()
+
+Set K = ThisWorkbook.Sheets("Sheet1")
+Y = 3
+X = 2
+
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+K.Cells(Rows.Count, 1).End(xlUp).Select
+Selection.EntireRow.Delete
+
+
+
+LastRow = K.Cells(Rows.Count, 1).End(xlUp).Row - 1
+For B = 3 To LastRow
+
+If K.Cells(Y, X) Like "*AR*" Then
+X = X + 11
+K.Cells(Y, X) = "MB"
+Y = Y + 1
+X = X - 11
+
+Else
+Y = Y + 1
+End If
+
+Next
+
+
+
+Y = 3
+X = 7
+
+LastRow = K.Cells(Rows.Count, 1).End(xlUp).Row - 1
+For B = 3 To LastRow
+
+If K.Cells(Y, X) Like "*0106*" Then
+X = X + 6
+K.Cells(Y, X) = "NAR"
+Y = Y + 1
+X = X - 6
+
+ElseIf K.Cells(Y, X) Like "*0103*" Then
+X = X + 6
+K.Cells(Y, X) = "Cash"
+Y = Y + 1
+X = X - 6
+
+ElseIf K.Cells(Y, X) Like "*0204*" Then
+X = X + 6
+K.Cells(Y, X) = "Dev"
+Y = Y + 1
+X = X - 6
+
+ElseIf K.Cells(Y, X) Like "*0922*" Then
+X = X + 6
+K.Cells(Y, X) = "Recon"
+Y = Y + 1
+X = X - 6
+
+ElseIf K.Cells(Y, X) Like "*0110*" Then
+X = X + 6
+K.Cells(Y, X) = "PettyCash"
+Y = Y + 1
+X = X - 6
+
+
+
+Else
+Y = Y + 1
+End If
+
+Next
+
+
+Y = 3
+X = 12
+
+LastRow = K.Cells(Rows.Count, 1).End(xlUp).Row - 1
+For C = 3 To LastRow
+
+K.Cells(Y, X) = "=IF(J" & Y & ">0,J" & Y & ",-K" & Y & ")"
+Y = Y + 1
+ Next
+
+M = Y + 2
+I = Y
+
+Y = Y + 2
+X = X - 3
+
+K.Cells(Y, X) = "MB"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "Sweep To"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "Sweep From"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "Fees"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "Gen"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "NAR"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "Dev"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "PettyCash"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+K.Cells(Y, X) = "Recon"
+K.Cells(Y, X).Font.Bold = True
+X = X + 1
+K.Cells(Y, X) = "=SUMIF($M$3:$M$" & I & ",I" & M & ",$L$3:$L$" & I & ")"
+K.Cells(Y, X).Font.Bold = True
+K.Cells(Y, X).Interior.ColorIndex = 4
+M = M + 1
+X = X - 1
+Y = Y + 1
+
+    Columns("L:L").Select
+    Selection.Style = "Comma"
+    Columns("J:K").Select
+    Selection.Style = "Comma"
+    Columns("G:M").Select
+    Columns("G:M").EntireColumn.AutoFit
+    Rows("3:3").Select
+    ActiveWindow.FreezePanes = True
+    ActiveSheet.Range("$A$2:$N$1000").AutoFilter Field:=7
+
+End Sub
